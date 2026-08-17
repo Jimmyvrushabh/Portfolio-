@@ -67,47 +67,34 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-              {navLinks.map((link) => (
-                <div key={link.label} className="relative flex items-center">
-                  {link.external ? (
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={link.label}
-                      className="px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 ease-in-out hover:text-primary relative group"
-                    >
-                      {link.title}
-                      <span className="absolute bottom-1.5 left-3 lg:left-4 right-3 lg:right-4 h-0.5 bg-primary transform origin-left scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100" />
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.url}
-                      aria-label={link.label}
-                      className={clsx(
-                        'px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 ease-in-out relative group',
-                        {
-                          'text-primary': pathname === link.url,
-                          'hover:text-primary': pathname !== link.url
-                        }
-                      )}
-                    >
-                      {link.title}
-                      <span 
-                        className={clsx(
-                          'absolute bottom-1.5 left-3 lg:left-4 right-3 lg:right-4 h-0.5 bg-primary transform origin-left transition-transform duration-200 ease-out',
-                          {
-                            'scale-x-100': pathname === link.url,
-                            'scale-x-0 group-hover:scale-x-100': pathname !== link.url
-                          }
-                        )}
-                      />
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </nav>
+  {navLinks.map((link) => (
+    <div key={link.label} className="relative flex items-center">
+      <Link
+        href={link.url}
+        aria-label={link.label}
+        className={clsx(
+          'px-3 lg:px-4 py-2 text-sm font-medium transition-all duration-300 ease-in-out relative group',
+          {
+            'text-primary': pathname === link.url,
+            'hover:text-primary': pathname !== link.url
+          }
+        )}
+      >
+        {link.title}
 
+        <span
+          className={clsx(
+            'absolute bottom-1.5 left-3 lg:left-4 right-3 lg:right-4 h-0.5 bg-primary transform origin-left transition-transform duration-200 ease-out',
+            {
+              'scale-x-100': pathname === link.url,
+              'scale-x-0 group-hover:scale-x-100': pathname !== link.url
+            }
+          )}
+        />
+      </Link>
+    </div>
+  ))}
+</nav>
             {/* Right: Actions */}
             <div className="flex items-center gap-1 sm:gap-2">
               <motion.div
