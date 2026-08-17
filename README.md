@@ -143,4 +143,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Built with ❤️ by [Harshhaa Vardhan Reddy](https://github.com/NotHarshhaa)**
+**Built with ❤️ by Vrushabh Rajesh Chaudhari
