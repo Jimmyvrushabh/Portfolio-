@@ -185,53 +185,41 @@ export function Header() {
                   transition={{ duration: 0.2 }}
                   className="pt-4 pb-2 space-y-1 border-t border-border/50 mt-3"
                 >
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.label}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="relative"
-                    >
-                      {link.external ? (
-                        <a
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={link.label}
-                          onClick={closeMobileMenu}
-                          className="block px-3 py-2.5 text-sm font-medium transition-all duration-300 ease-in-out hover:text-primary hover:bg-primary/5 rounded-lg relative group"
-                        >
-                          {link.title}
-                          <span className="absolute bottom-2 left-3 right-3 h-0.5 bg-primary transform origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                        </a>
-                      ) : (
-                        <Link
-                          href={link.url}
-                          aria-label={link.label}
-                          onClick={closeMobileMenu}
-                          className={clsx(
-                            'block px-3 py-2.5 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-primary/5 rounded-lg relative group',
-                            {
-                              'text-primary': pathname === link.url,
-                              'hover:text-primary': pathname !== link.url
-                            }
-                          )}
-                        >
-                          {link.title}
-                          <span 
-                            className={clsx(
-                              'absolute bottom-2 left-3 right-3 h-0.5 bg-primary transform origin-left transition-transform duration-300 ease-out',
-                              {
-                                'scale-x-100': pathname === link.url,
-                                'scale-x-0 group-hover:scale-x-100': pathname !== link.url
-                              }
-                            )}
-                          />
-                        </Link>
-                      )}
-                    </motion.div>
-                  ))}
+                {navLinks.map((link, index) => (
+  <motion.div
+    key={link.label}
+    initial={{ opacity: 0, x: -10 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: index * 0.05 }}
+    className="relative"
+  >
+    <Link
+      href={link.url}
+      aria-label={link.label}
+      onClick={closeMobileMenu}
+      className={clsx(
+        'block px-3 py-2.5 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-primary/5 rounded-lg relative group',
+        {
+          'text-primary': pathname === link.url,
+          'hover:text-primary': pathname !== link.url
+        }
+      )}
+    >
+      {link.title}
+
+      <span
+        className={clsx(
+          'absolute bottom-2 left-3 right-3 h-0.5 bg-primary transform origin-left transition-transform duration-300 ease-out',
+          {
+            'scale-x-100': pathname === link.url,
+            'scale-x-0 group-hover:scale-x-100': pathname !== link.url
+          }
+        )}
+      />
+    </Link>
+  </motion.div>
+))}
+                
                   
                   {/* Mobile-only actions */}
                   <div className="pt-2 mt-2 border-t border-border/50 flex items-center justify-center gap-3">
