@@ -13,6 +13,7 @@ import { StructuredData } from '@/components/structured-data'
 import { cn } from '@/lib/utils'
 import { metadata as siteMetadata } from './metadata'
 import './globals.css'
+import Oneko from '@/components/Oneko'
 
 import { ClientLayout } from './client-layout'
 
@@ -55,6 +56,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
         </ViewTransitions>
+        <Oneko />
       </body>
     </html>
   )
